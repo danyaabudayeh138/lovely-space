@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Space 🎀</title>
+    <link rel="stylesheet" href="style.css"> لا تنسو قسم ماي ورد 
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Lovely Space 🎀</h1>
+            <ul class="nav-links">
+                <li><a href="#my-world">My World</a></li>
+                <li><a href="#day-planner">Day Planner</a></li>
+                <li><a href="#things-to-do">Things To Do</a></li>
+                <li><a href="#mood-tracker">Mood Tracker</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+<section id="my-world" class="hero">
+  <div class="hero-overlay">
+    <h1>Organize Your Day Beautifully 🌸</h1>
+    <p>A soft and simple space to plan your day, track your mood, and stay inspired.</p>
+    <button class="btn">Start Planning</button>
+  </div>
+</section>
+
+
+
+        <!-- Day Planner Section -->
+       <section id="day-planner" class="plan-day">
+  <div class="container">
+    <h2>Plan Your Day 📝</h2>
+    <p>Write down your tasks, goals, and notes for the day.</p>
+
+    <div class="plan-form">
+      <input type="text" placeholder="Add your task...">
+      <button>Add</button>
+    </div>
+
+    <ul class="tasks-list">
+      <!-- هنا رح تظهر المهام -->
+      <li>Example Task 1</li>
+      <li>Example Task 2</li>
+    </ul>
+  </div>
+</section>
+
+
+        <!-- Things To Do Section -->
+       <section id="things-to-do">
+  <div class="services-grid">
+    <div class="service-item" onclick="openPopup('morning')">
+        <h3>Morning Routine 🌅</h3>
+    </div>
+
+    <div class="service-item" onclick="openPopup('tasks')">
+        <h3>Tasks & Goals 🎯</h3>
+    </div>
+
+    <div class="service-item" onclick="openPopup('evening')">
+        <h3>Evening Reflection 🌙</h3>
+    </div>
+</div>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">×</span>
+    <h3 id="popup-title"></h3>
+    <p id="popup-text"></p>
+  </div>
+</div>
+</section>
+
+    <!-- Mood Section -->
+<!-- Mood Tracker Section -->
+<section id="mood-tracker" class="mood-section">
+  <h2>How are you feeling today?</h2>
+  <div class="moods">
+      <button onclick="setMood('happy')">😊</button>
+      <button onclick="setMood('excited')">😍</button>
+      <button onclick="setMood('calm')">😌</button>
+      <button onclick="setMood('sad')">😢</button>
+      <button onclick="setMood('angry')">😠</button>
+  </div>
+  
+  <div id="mood-text"></div>
+<div id="mood-message"></div>
+
+</section>
+
+</body>
+</html>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Lovely Space. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+  const input = document.querySelector('.plan-form input');
+  const button = document.querySelector('.plan-form button');
+  const tasksList = document.querySelector('.tasks-list');
+
+  // لما تضغطي على زر Add
+  button.addEventListener('click', () => {
+    const taskText = input.value.trim();
+    if(taskText !== '') {
+      const li = document.createElement('li');
+      li.textContent = taskText;
+      tasksList.appendChild(li);
+      input.value = ''; // يمسح الحقل بعد الإضافة
+    }
+  });
+</script>
+
+<script>
+function openPopup(type) {
+  const popup = document.getElementById("popup");
+  const title = document.getElementById("popup-title");
+  const text = document.getElementById("popup-text");
+
+  if (type === "morning") {
+    title.textContent = "Morning Routine 🌅";
+    text.textContent = "Drink water, stretch, write your goals, and start your day peacefully.";
+  }
+
+  if (type === "tasks") {
+    title.textContent = "Tasks & Goals 🎯";
+    text.textContent = "Write your daily tasks and focus on finishing them step by step.";
+  }
+
+  if (type === "evening") {
+    title.textContent = "Evening Reflection 🌙";
+    text.textContent = "Review your day, mark completed tasks, and relax.";
+  }
+
+  popup.style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+<script>
+function setMood(mood) {
+    const moodText = document.getElementById('mood-text');
+    const moodMessage = document.getElementById('mood-message');
+
+    // تحديث نص المزاج
+    moodText.textContent = `Your mood: ${mood.charAt(0).toUpperCase() + mood.slice(1)}`;
+
+    // رسالة حسب المزاج
+    let message = '';
+    switch(mood) {
+        case 'happy':
+            message = "Yay! Keep smiling today! 😄";
+            break;
+        case 'excited':
+            message = "Woohoo! Enjoy your excitement! 🎉";
+            break;
+        case 'calm':
+            message = "Relax and enjoy the peace. 🌿";
+            break;
+        case 'sad':
+            message = "It's okay to have rough days. 💙";
+            break;
+        case 'angry':
+            message = "Take a deep breath, it will pass. 💢";
+            break;
+        default:
+            message = "";
+    }
+
+    moodMessage.textContent = message;
+}
+</script>
+</body>
+</html>
+
+

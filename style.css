@@ -1,0 +1,322 @@
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #f5f5f5; /* نص فاتح للظهور على الخلفية الغامقة */
+    background-color: #0f0f0f; /* أسود خلفية عام */
+    scroll-padding-top: 80px; /* لتجنب اختفاء الأقسام تحت navbar */
+}
+
+/* ===== Navigation Bar ===== */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1a1a1a; /* غامق لكن مش أسود بالكامل */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo {
+    color: #ff99cc; /* وردي فاتح */
+    font-size: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ff99cc;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff66b2;
+}
+.hero {
+    background: url('images/image\ .jpg') no-repeat center top;
+    background-size: cover; /* خلي الصورة كلها تظهر */
+    height: 100vh; /* ارتفاع مناسب */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: rgb(5, 1, 1);
+    margin: 0;
+    overflow: hidden;
+    background-position: center 30%;
+    filter: brightness(0.75) ; 
+
+}
+
+/* .hero-overlay::before 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #eee3e3d1; /* غمق خفيف */
+    
+
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ===== Sections ===== */
+.section {
+    padding: 60px 20px;
+    min-height: 700px; /* ارتفاع ثابت لكل قسم */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* يبدأ المحتوى من الأعلى */
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+/* ===== Day Planner ===== */
+#day-planner {
+    background-color: #f4eff2; /* أسود غامق */
+    color: #ff99cc;
+    text-align: center;
+}
+
+
+.plan-day {
+  padding: 80px 20px;       /* مسافة حول القسم */
+  background-color: #e5dcdf; /* لون هادي للخلفية */
+  text-align: center;        /* جعل النصوص في الوسط */
+}
+
+.plan-day h2 {
+  font-size: 2.2rem;        /* حجم العنوان */
+  margin-bottom: 10px;      /* مسافة تحت العنوان */
+}
+
+.plan-day p {
+  font-size: 1.1rem;        /* حجم الفقرة */
+  margin-bottom: 30px;
+  color: #555;               /* لون رمادي للنص */
+}
+
+.plan-form {
+  display: flex;             /* يجعل الحقل والزر بجانب بعض */
+  justify-content: center;   /* يوسّطهم أفقياً */
+  gap: 10px;                 /* مسافة بين الحقل والزر */
+  margin-bottom: 20px;
+}
+
+.plan-form input {
+  padding: 10px 15px;        /* مساحة داخل الحقل */
+  font-size: 1rem;           /* حجم النص */
+  border: 1px solid #ccc;    /* إطار خفيف */
+  border-radius: 8px;        /* حواف دائرية */
+  width: 250px;              /* عرض الحقل */
+}
+
+.plan-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffb6b9; /* لون الزر */
+  color: white;
+  cursor: pointer;
+}
+
+.plan-form button:hover {
+  background-color: #ff8fa3; /* لون الزر لما تحملي عليه الماوس */
+}
+
+.tasks-list {
+  list-style: none;          /* إزالة النقط من القائمة */
+  padding: 0;
+}
+
+.tasks-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* خط تحت كل مهمة */
+  color: #333;
+}
+
+
+/* ===== Things To Do ===== */
+/* قسم الأشياء للقيام بها */
+#things-to-do {
+  background-color: #110f10; /* خلفية فاتحة للقسم */
+  padding: 30px;
+}
+
+/* عناصر الخدمة */
+#things-to-do .service-item {
+  background-color: #fbaee2;
+  color: #000;
+  padding: 25px;
+  margin: 15px 0;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-size: 18px;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* تأثير hover للبوكس */
+#things-to-do .service-item:hover {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* النص الإضافي تحت البوكس */
+.service-text {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  background-color: #ffffff; /* خلفية فاتحة للنص */
+  color: #000; /* نص أسود واضح */
+  padding: 0 15px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+
+/* عند الضغط على البوكس يظهر النص */
+#things-to-do .service-item.active .service-text {
+  max-height: 200px; /* ارتفاع كافي للنص */
+  opacity: 1;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+
+
+/* ===== / Mood Tracker ===== */
+.mood-section {
+    background: linear-gradient(to bottom, #ef5eb0, #837b80);
+    padding: 50px 20px;
+    border-radius: 20px;
+    width: 420px;
+    margin: 60px auto;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(213, 210, 210, 0.849);
+    
+}
+
+.mood-section h2 {
+    color: #e8d7d7;
+    margin-bottom: 25px;
+}
+
+.moods {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.moods button {
+    font-size: 30px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 15px;
+    background: #f3f3f3;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.moods button:hover {
+    transform: scale(1.15);
+    background: white;
+}
+
+#mood-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
+
+#mood-message {
+    font-size: 16px;
+    color: #333;
+    margin-top: 8px;
+}
+
+
+
+/* ===== Footer ===== */
+footer {
+    background-color: #1a1a1a;
+    color: #ff99cc;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin-left: 1rem;
+    }
+
+    .section {
+        padding: 40px 15px;
+        min-height: auto;
+    }
+
+    #things-to-do .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        margin: 15px 0;
+        padding: 40px 15px;
+    }
+}
+
